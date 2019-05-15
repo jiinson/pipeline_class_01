@@ -11,6 +11,7 @@ pipeline {
 }
 */
 
+/*
 pipeline {
     agent any
     stages {
@@ -23,6 +24,19 @@ pipeline {
             steps {
                 echo "Test"                        
             }
+        }
+    }
+}
+*/
+
+node {
+    stage('Deploy') {
+        retry(3) {
+            echo "Retry"
+        }
+
+        timeout(time: 3, unit: 'SECONDS') {
+            echo "Sleep"
         }
     }
 }
